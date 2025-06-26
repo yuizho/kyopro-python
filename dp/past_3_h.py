@@ -2,14 +2,14 @@ N, L = map(int, input().split())
 hurdles = set(map(int, input().split()))
 T1, T2, T3 = map(int, input().split())
 
-dp = [float("inf")] * (L + 5)
+dp = [float("inf")] * (L + 1)
 dp[0] = 0
 
 cost1 = T1
 cost2 = T1 + T2
 cost3 = T1 + 3 * T2
 
-for i in range(1, L + 5):
+for i in range(1, L + 1):
     hardle_cost = 0 if i > L else (T3 if i in hurdles else 0)
 
     dp[i] = min(dp[i], cost1 + dp[i - 1] + hardle_cost)
