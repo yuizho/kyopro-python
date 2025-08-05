@@ -1,5 +1,7 @@
 from collections import defaultdict
-from typing import DefaultDict
+import sys
+
+sys.setrecursionlimit(10**6)
 
 N, M = map(int, input().split())
 
@@ -10,10 +12,10 @@ for f, t in paths:
     graphs[f].append(t)
 
 
-dp: DefaultDict[int, int] = defaultdict(int)
+dp: dict[int, int] = {}
 
 
-def traverse(path) -> int:
+def traverse(path: int) -> int:
     if not graphs[path]:
         return 0
 
@@ -29,7 +31,7 @@ def traverse(path) -> int:
 
 
 longest = 0
-for k in list(graphs.keys()):
-    longest = max(longest, traverse(k))
+for i in range(1, N + 1):
+    longest = max(longest, traverse(i))
 
 print(longest)
