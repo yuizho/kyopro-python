@@ -1,13 +1,10 @@
 A, B, C, X, Y = map(int, input().split())
 
+ans = 10**30
+for k in range(0, max(X, Y) + 1):
+    a_amount = A * max(0, X - k)
+    b_amount = B * max(0, Y - k)
+    c_amount = 2 * C * k
+    ans = min(ans, a_amount + b_amount + c_amount)
 
-amount1 = A * X + B * Y
-amount2 = 2 * C * max(X, Y)
-
-less_count = min(X, Y)
-remaining_count = max(X, Y) - less_count
-remaining_pizza = B if X < Y else A
-
-amount3 = 2 * C * less_count + remaining_pizza * remaining_count
-
-print(min(min(amount1, amount2), amount3))
+print(ans)
