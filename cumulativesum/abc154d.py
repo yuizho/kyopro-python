@@ -3,7 +3,7 @@ P = list(map(int, input().split()))
 
 cum_expected = [0.0] * (N + 1)
 for i in range(1, N + 1):
-    current_expected_value = sum(range(1, P[i - 1] + 1)) / P[i - 1]
+    current_expected_value = (P[i - 1] + 1) / 2
     cum_expected[i] = cum_expected[i - 1] + current_expected_value
 
 # print(cum_expected)
