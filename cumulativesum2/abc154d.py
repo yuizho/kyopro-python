@@ -1,8 +1,5 @@
 def calc_kitaichi(n):
-    result = 0
-    for i in range(1, n + 1):
-        result += i * (1 / n)
-    return result
+    return (n + 1) / 2
 
 
 N, K = map(int, input().split())
