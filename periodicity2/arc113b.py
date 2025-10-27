@@ -1,7 +1,7 @@
 A, B, C = map(int, input().split())
 
 P = [
-    [],
+    [0],
     [1],
     [2, 4, 8, 6],
     [3, 9, 7, 1],
@@ -13,12 +13,12 @@ P = [
     [9, 1],
 ]
 
-tmp = int(str(A)[-1])
-print((B % len(P[tmp])))
+a = A % 10
+cycle = P[a]
+L = len(cycle)
 
-tmp = tmp ** (B % len(P[tmp]))
-print(tmp)
-print(P[tmp])
-
-result = tmp ** (C % len(P[tmp]))
-print(result)
+if L == 1:
+    print(cycle[0])
+else:
+    e_mod = pow(B, C, L)  # B ** C % L
+    print(cycle[e_mod - 1])
